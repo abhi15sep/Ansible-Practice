@@ -1,0 +1,9 @@
+Section 03
+------------------------------------------------------------------------------------------
+
+##
+# Demo 01 Gathering Facts
+##
+
+# Gather facts
+$ ansible windows_servers -m gather_facts

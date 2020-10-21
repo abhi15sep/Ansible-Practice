@@ -1,0 +1,12 @@
+Section 05
+------------------------------------------------------------------------------------------
+
+##
+# Demo 03 Convert to template
+##
+
+# Open VS Code
+$ code .
+
+# Run playbook
+$ ansible-playbook dbservers.yaml

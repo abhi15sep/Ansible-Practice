@@ -1,0 +1,12 @@
+Section 08
+------------------------------------------------------------------------------------------
+
+##
+# Demo 04 Conditionals
+##
+
+# Create a new playbook with conditionals
+$ code webserver_playbook_conditionals.yaml
+
+# Run the playbook
+$ ansible-playbook webserver_playbook_conditionals.yaml

@@ -1,0 +1,22 @@
+---
+- name: Name of play
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Name of task
+      copy:
+        dest: /etc/sudoers.d/tux
+        content: 'tux ALL=(ALL) NOPASSWD: ALL'
+
+    - name: Install lvm2
+      apt:
+        name: lvm2
+        state: latest
+
+    - name: Meta-data service
+      service:
+        name: lvm2-lvmetad
+        state: started
+        enabled: true
+...

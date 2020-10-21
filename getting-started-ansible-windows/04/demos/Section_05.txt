@@ -1,0 +1,18 @@
+Section 05
+------------------------------------------------------------------------------------------
+
+##
+# Demo 02 win_file_copy
+##
+
+# Make project folder
+$ mkdir projects/ansible -project
+
+# Move into projects folder
+$ cd projects/ansible
+
+# Invoke visual studio code on new file
+$ code win_copy_playbook.yaml
+
+# Invoke ansible-playbook on new playbook file
+$ ansible-playbook win_file_copy.yaml

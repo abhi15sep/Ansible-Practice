@@ -1,0 +1,46 @@
+Section 03
+------------------------------------------------------------------------------------------
+
+##
+# Demo 02 Installing Ansible on Linux
+##
+
+# Change to super user/root
+$ sudo sudo
+
+# Update apt package manifest
+$ apt-get Update
+
+# Install software-properties-common
+$ apt-get install software-properties-common -y
+
+# Add public Ansible repo to package manifest source
+$ apt-add-repository ppa:ansible/ansible
+
+# Install Ansible via apt package manager
+$ apt-get install ansible -y
+
+# Verify Ansible is installed and version
+$ ansible --version
+
+##
+# Demo 03 Installing on Windows 10 with WSL
+##
+
+# Update apt package manifest
+$ sudo apt-get update
+
+# Install Pypi pip package manager under Python3
+$ sudo apt-get install python3-pip
+
+# Install Ansible via Pypi pip
+$ sudo pip3 install ansible
+
+# Verify Ansible is installed and version
+$ ansible --version
+
+# Install Pywinrm to communicate to Windows hosts
+$ sudo pip3 install Pywinrm
+
+# Install credssp plugin to Pywinrm
+$ sudo pip install pywinrm[credssp] 

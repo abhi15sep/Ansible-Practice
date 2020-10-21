@@ -1,0 +1,15 @@
+Section 06
+------------------------------------------------------------------------------------------
+
+##
+# Demo 03 Linux Webserver Playbook
+##
+
+# Linux webserver file creation
+$ code webserver_playbook_linux.yaml
+
+# Edit ansible hosts file
+$ sudo nano /etc/ansible/hosts
+
+# Invoke ansible playbook
+$ ansible-playbook webserver_playbook_linux.yaml

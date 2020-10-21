@@ -1,0 +1,12 @@
+Section 02
+------------------------------------------------------------------------------------------
+
+##
+# Demo 01 Organizing Code into roles
+##
+
+# Open VS Code
+$ code .
+
+# Run playbook
+$ ansible-playbook webservers.yaml

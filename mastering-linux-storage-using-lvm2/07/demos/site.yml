@@ -1,0 +1,91 @@
+---
+- name: Name of play
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Name of task
+      copy:
+        dest: /etc/sudoers.d/tux
+        content: 'tux ALL=(ALL) NOPASSWD: ALL'
+
+    - name: Install lvm2
+      apt:
+        name: lvm2
+        state: latest
+
+    - name: Meta-data service
+      service:
+        name: lvm2-lvmetad
+        state: started
+        enabled: true
+    
+    - name: Part Table
+      parted:
+        device: /dev/sdb
+        label:  msdos
+
+    - name: Part1
+      parted:
+        device: /dev/sdb
+        number: 1
+        part_start: 0%
+        part_end: 25%
+        flags: [ lvm ]
+        state: present
+
+    - name: Part2
+      parted:
+        device: /dev/sdb
+        number: 2
+        part_start: 25%
+        part_end: 50%
+        flags: [ lvm ]
+        state: present
+
+    - name: Part3
+      parted:
+        device: /dev/sdb
+        number: 3
+        part_start: 50%
+        part_end: 75%
+        flags: [ lvm ]
+        state: present
+
+    - name: Part4
+      parted:
+        device: /dev/sdb
+        number: 4
+        part_start: 75%
+        part_end: 100%
+        flags: [ lvm ]
+        state: present
+    - name: Create VG
+      lvg:
+        vg: vg1
+        pvs: /dev/sdb1,/dev/sdb2
+        pesize: 8
+
+    - name: Create LV
+      lvol:
+        vg: vg1
+        lv: lv1
+        size: 96m
+
+    - name: create dir
+      file:
+        path: /data
+        state: directory
+
+    - name: format
+      filesystem:
+        type: ext4
+        device: /dev/vg1/lv1
+
+    - name: mount
+      mount:
+        path: /data
+        src: /dev/vg1/lv1
+        fstype: ext4
+        state: mounted
+...
